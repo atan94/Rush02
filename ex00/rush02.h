@@ -6,7 +6,7 @@
 /*   By: oelumala <oelumala@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/10 17:13:01 by amtan             #+#    #+#             */
-/*   Updated: 2025/08/10 20:00:16 by oelumala         ###   ########.fr       */
+/*   Updated: 2025/08/10 20:13:45 by oelumala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,5 @@ long			ft_atol(char *str);
 
 // Writes string to stdout
 void			ft_putstr(char *str);
-
-// Writes string + newline
-void			ft_putendl(char *str);
 
 #endif
