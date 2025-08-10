@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rush02.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amtan <amtan@student.42singapore.sg>       +#+  +:+       +#+        */
+/*   By: oelumala <oelumala@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/10 17:13:01 by amtan             #+#    #+#             */
-/*   Updated: 2025/08/10 17:45:37 by amtan            ###   ########.fr       */
+/*   Updated: 2025/08/10 20:00:16 by oelumala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@
 
 typedef struct s_dict_entry
 {
-	char	*key;	// numeric string (e.g., "42")
-	char	*value; // word form (e.g., "forty two")
+	char *key;   // numeric string (e.g., "42")
+	char *value; // word form (e.g., "forty two")
 }				t_dict_entry;
 
 /*
@@ -50,9 +50,9 @@ void			free_dict(t_dict_entry *dict, int size);
 char			*trim_spaces(char *str);
 
 // Returns 1 if str is a valid numeric string, 0 otherwise
-int				is_valid_number_str(char *str);
+int				is_valid_number_str(int argc, char *argv[]);
 
-/*
+/*z
 ** =======================
 **  Number Conversion
 ** =======================
