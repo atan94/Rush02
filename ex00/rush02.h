@@ -6,7 +6,7 @@
 /*   By: oelumala <oelumala@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/10 17:13:01 by amtan             #+#    #+#             */
-/*   Updated: 2025/08/10 20:13:45 by oelumala         ###   ########.fr       */
+/*   Updated: 2025/08/10 21:44:29 by oelumala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,9 @@ typedef struct s_dict_entry
 ** =======================
 */
 
-// Reads entire file into a malloc'ed string
-// Returns NULL on error
-char			*read_file_to_string(char *filename);
-
 // Splits dictionary string into t_dict_entry array
 // Returns number of entries via *size, NULL on error
-t_dict_entry	*parse_dict(char *dict_str, int *size);
+t_dict_entry	*parse_dict(char *filename, char *dict_str, int *size);
 
 // Frees all memory allocated for dictionary
 void			free_dict(t_dict_entry *dict, int size);
@@ -50,23 +46,18 @@ void			free_dict(t_dict_entry *dict, int size);
 char			*trim_spaces(char *str);
 
 // Returns 1 if str is a valid numeric string, 0 otherwise
-int				is_valid_number_str(int argc, char *argv[]);
+int				parse_input(int argc, char *argv[], char **dict_path,
+					char **number_str);
 
 /*z
 ** =======================
-**  Number Conversion
+**  Dictionary search
 ** =======================
 */
 
 // Finds the word for num_str in dict
 // Returns pointer or NULL
 char			*find_in_dict(char *num_str, t_dict_entry *dict, int size);
-
-// Prints the number in words using dict
-void			print_number_words(long num, t_dict_entry *dict, int size);
-
-// Converts string to long (no overflow handling needed)
-long			ft_atol(char *str);
 
 /*
 ** =======================
@@ -76,5 +67,6 @@ long			ft_atol(char *str);
 
 // Writes string to stdout
 void			ft_putstr(char *str);
+int				strlen(char *str);
 
 #endif

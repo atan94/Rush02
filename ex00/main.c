@@ -3,61 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: suzaho <suzaho@student.42.fr>              +#+  +:+       +#+        */
+/*   By: oelumala <oelumala@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/10 16:07:16 by suzaho            #+#    #+#             */
-/*   Updated: 2025/08/10 20:02:36 by suzaho           ###   ########.fr       */
+/*   Updated: 2025/08/10 21:44:16 by oelumala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdlib.h>
 #include <fcntl.h>
 #include <rush02.h>
+#include <stdlib.h>
+#include <unistd.h>
 
-int main(int argc, char *argv[]) 
-   {
-	char *dict_path;
-    char *number_str;
-	
-    if (argc == 2) {
-        dict_path = "numbers.dict";
-        number_str = argv[1];
-    } else if (argc == 3) {
-        dict_path = argv[1];
-        number_str = argv[2];
-    } else {
-        write(1, "Error\n", 6);
-        return 1;
-    }
-    // Validate number string
-    if (!is_valid_number_str(int argc, char *argv[])) 
-	{
-        write(1, "Error\n", 6);
-        return 1;
-    }
-    // Read and parse dictionary
-    char *content = read_file_to_string(dict_path);
-    if (!content) {
-        write(1, "Dict Error\n", 11);
-        return 1;
-    }
-    // allocate and parse lines into dict entries...
-    // (use parsing code from section 3)
-    if (parse_error_occurred) 
-	{
-        free(content);
-        // free any partially allocated entries
-        write(1, "Dict Error\n", 11);
-        return 1;
-    }
-    free(content);
-    // Free dictionary entries
-    for (int i = 0; i < dict_size; ++i) 
-	{
-        free(dict[i].num_str);
-        free(dict[i].word);
-    }
-    free(dict);
-    return 0;
+int	main(int argc, char *argv[])
+{
+	char			*dict_path;
+	char			*number_str;
+	t_dict_entry	*dict;
+	int				*size;
+
+	if (!parse_input(argc, argv, dict_path, number_str))
+		return (1);
+	*size = parse_dict(dict_path, dict, size);
+	if (!*size)
+		return (1);
+
+	// get length of number_str
+	// split into 3
+	// convert xxx into text
+	// convert placevalue into text
+
+
+
+	//free_dict(dict, *size);
+	return (0);
 }
